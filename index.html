@@ -14,11 +14,11 @@
       let res = await fetch(url, {
         method: "POST",
         // body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
+        // headers: { "Content-Type": "application/json" }
       });
 
-      let text = await res.text();
-      alert("Server says: " + text);
+  let text = await res.text();
+  document.getElementById("result").innerText = "Kết quả: " + text;
     }
   </script>
 </head>
@@ -26,5 +26,6 @@
   <button onclick="sendData()" style="padding: 10px 20px; background: #2563eb; color: white; border-radius: 8px;">
     Gửi dữ liệu
   </button>
+  <div id="result" style="margin-top:20px; font-size:18px; color:#2563eb;"></div>
 </body>
 </html>
