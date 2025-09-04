@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Button → Google Sheet</title>
+  <script>
+    async function sendData() {
+      const url = "https://script.google.com/macros/s/AKfycbwqqgI7CnNFhjMSQ97dtdDRZX-aI7EtBJrnPTA9iX0OPaJjMQ5K5dqy9FQwN3dtf1mwgw/exec"; // dán URL Apps Script vào đây
+      const data = {
+        name: "Duy",
+        email: "duy@example.com"
+      };
+
+      let res = await fetch(url, {
+        method: "POST",
+        // body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      });
+
+      let text = await res.text();
+      alert("Server says: " + text);
+    }
+  </script>
+</head>
+<body class="flex items-center justify-center h-screen">
+  <button onclick="sendData()" style="padding: 10px 20px; background: #2563eb; color: white; border-radius: 8px;">
+    Gửi dữ liệu
+  </button>
+</body>
+</html>
